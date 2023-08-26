@@ -1,15 +1,27 @@
-// Imports
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
-const path = require('path');
-require('dotenv').config();
+//IMPORTACIONES
+import express from 'express'
+import cors from 'cors'
+import helmet from 'helmet' 
+import morgan from 'morgan'
+import dotenv from 'dotenv'
+import { connectDb } from './db.js'
 
-
+//CONFIGURACION DE LA APP Y EL PUERTO DEL SERVIDOR
 const app = express();
-const port = process.env | 3000
+const PORT = process.env.PORT || 3000
 
-  
-app.listen(port, () => 
-console.log(`Servidor corriendo en http://localhost:${port}`));
+
+//CONFIGURACION DE MIDDELWARES
+dotenv.config();
+app.use(express.json());
+app.use(morgan('dev'));
+app.use(helmet());
+app.use(cors());
+
+//CONEXION A BASE DE DATOS
+connectDb();
+
+
+//SERVIDOR CORRIENDO  
+app.listen(PORT, () => 
+console.log(`Servidor corriendo en http://localhost:${PORT}`));
