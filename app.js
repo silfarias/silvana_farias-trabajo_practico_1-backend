@@ -22,6 +22,16 @@ app.use(cors());
 connectDb();
 
 
+
 //SERVIDOR CORRIENDO  
 app.listen(PORT, () => 
 console.log(`Servidor corriendo en http://localhost:${PORT}`));
+
+
+
+
+//CREACIONES DE LAS TABLAS
+/* import { playlists, users } from './src/models/playlist.js';
+sequelize.authenticate()
+.then(() => console.log('Tabla de playlists, users creada'))
+.catch((error) => console.log('Error al crear la tabla playlists o users')) */
