@@ -4,7 +4,9 @@ import cors from 'cors'
 import helmet from 'helmet' 
 import morgan from 'morgan'
 import dotenv from 'dotenv'
-import { connectDb } from './db.js'
+import { connectDb } from './database/db.js'
+import { router } from './src/routes/routes.js'
+import './database/associations.js'
 
 //CONFIGURACION DE LA APP Y EL PUERTO DEL SERVIDOR
 const app = express();
@@ -18,20 +20,14 @@ app.use(morgan('dev'));
 app.use(helmet());
 app.use(cors());
 
+
 //CONEXION A BASE DE DATOS
 connectDb();
 
 
+//RUTAS
+app.use('/', router)
 
 //SERVIDOR CORRIENDO  
 app.listen(PORT, () => 
 console.log(`Servidor corriendo en http://localhost:${PORT}`));
-
-
-
-
-//CREACIONES DE LAS TABLAS
-/* import { playlists, users } from './src/models/playlist.js';
-sequelize.authenticate()
-.then(() => console.log('Tabla de playlists, users creada'))
-.catch((error) => console.log('Error al crear la tabla playlists o users')) */
