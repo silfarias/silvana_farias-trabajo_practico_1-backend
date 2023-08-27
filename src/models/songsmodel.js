@@ -16,9 +16,16 @@ export const songs = sequelize.define('songs', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    id_playlist: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'playlists',
+            key: 'id'
+        }
+    }
 },{
     timestamps: true,
     tableName: 'songs'
 })
 
-songs.sync({ force: true })
+songs.sync({ force: false })

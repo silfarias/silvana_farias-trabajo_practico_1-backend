@@ -2,7 +2,6 @@ import { playlists } from "../models/playlistsmodel.js";
 
 //CRUD CON LAS 5 OPERACIONES DE LA ENTIDAD PLAYLIST
 
-
 //OBETENER UNA PLAYLIST POR SU ID
 export const getPlaylist = async (req, res) => {
     try {

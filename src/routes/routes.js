@@ -7,7 +7,8 @@ import { createUser } from "../controllers/controller-user.js";
 const router = Router();
 
 //CREAR USUARIO CON VALIDACIONES
-router.post('/newuser', validacion, validateSchema, createUser )
+router.post('/newuser',
+validacion, validateSchema, createUser )
 
 
 

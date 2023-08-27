@@ -16,13 +16,20 @@ export const playlists = sequelize.define('playlists', {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
         allowNull: false
+    },
+    id_user: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'users',
+            key: 'id'
+        }
     }
 },{
     timestamps: true,
     tableName: 'playlists'
 });
 
-playlists.sync({ force: true });
+playlists.sync({ force: false });
 
 
 
