@@ -2,15 +2,18 @@ import { playlists } from "../models/playlistsmodel.js";
 
 //CRUD CON LAS 5 OPERACIONES DE LA ENTIDAD PLAYLIST
 
-//OBETENER UNA PLAYLIST POR SU ID
-export const getPlaylist = async (req, res) => {
+//OBTENER UNA PLAYLIST POR SU ID
+export const getPlaylistId = async (req, res) => {
     try {
         const { id } = req.params;
-        const lista  = await playlists.findByPk(id);
-        return res.json(lista);
+        const playlist = await playlists.findByPk(id);
+        if (!playlist) {
+            return res.status(404).json({ message: 'Playlist no encontrada' });
+        }   
+        return res.json(playlist);
     } catch (error) {
-        console.log('Error al obtener la playlist por su su ID', error);
-        return res.status(500).json({ message: 'Error al obtener la playlist por su ID' })
+        console.log('Error al obtener la playlist por su ID', error);
+        return res.status(500).json({ message: 'Error al obtener la playlist por su ID' });
     }
 };
 
@@ -18,13 +21,13 @@ export const getPlaylist = async (req, res) => {
 //OBTENER TODAS LAS PLAYLISTS
 export const getAllPlaylists = async (req, res) => {
     try {
-        const listas = await playlists.findAll();
-        return res.json(listas); 
+      const allPlaylists = await playlists.findAll();
+      return res.status(200).json(allPlaylists);
     } catch (error) {
-      console.log('Error al obtener las playlists', error);
-      return res.status(500).json({ message: 'Error al obtener las playlists' })
+      console.error('Error al obtener las playlists:', error);
+      return res.status(500).json({ message: 'Error al obtener las playlists' });
     }
-};
+  };
 
 
 //CREAR PLAYLIST

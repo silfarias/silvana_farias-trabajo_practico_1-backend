@@ -17,7 +17,7 @@ export const users = sequelize.define('users', {
         allowNull: false,
         unique: {
             args: true,
-            messge: 'El email ya existe'
+            message: 'El email ya existe'
         },
     },
     password: {

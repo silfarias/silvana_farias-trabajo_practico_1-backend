@@ -10,7 +10,10 @@ import { songs } from "../src/models/songsmodel.js";
 users.hasMany(playlists, { 
     foreignKey: 'id_user'
 });
-playlists.belongsTo(users);
+playlists.belongsTo(users, {
+    foreignKey: 'id_user'
+});
+
 
 
 //RELACION DE UNO A MUCHOS ENTRE PLAYLIST Y CANCION
@@ -19,4 +22,6 @@ playlists.hasMany(songs, {
     foreignKey: 'id_playlist'
 });
 
-songs.belongsTo(playlists);
+songs.belongsTo(playlists, {
+    foreignKey: 'id_playlist'
+});

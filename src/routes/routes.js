@@ -1,14 +1,18 @@
 import { Router } from "express";
 import { createPlaylist, deletePlaylist,
-getAllPlaylists, getPlaylist, updatePlaylist } from "../controllers/controller-playlist.js";
+getAllPlaylists, getPlaylistId, updatePlaylist } from "../controllers/controller-playlist.js";
 import { validacion, validateSchema } from "../../middleware/validationShema.js";
 import { createUser } from "../controllers/controller-user.js";
+import { createsong } from "../controllers/controller-song.js";
 
 const router = Router();
 
 //CREAR USUARIO CON VALIDACIONES
 router.post('/newuser',
 validacion, validateSchema, createUser )
+
+//RUTA PARA CREAR/GUARDAR SONG EN PLAYLIST
+router.post('/newsong', createsong )
 
 
 
@@ -19,15 +23,15 @@ validacion, validateSchema, createUser )
 router.get('/getplaylists', getAllPlaylists )
 
 //OBTENER UNA PLAYLIST POR SU ID
-router.get('/getplay:id', getPlaylist )
+router.get('/getplay/:id', getPlaylistId )
 
 //CREAR PLAYLIST
 router.post('/createplay', createPlaylist)
 
 //EDITAR PLAYLIST
-router.put('/updateplay', updatePlaylist)
+router.put('/updateplay/:id', updatePlaylist)
 
 //ELIMINAR PLAYLIST
-router.delete('/deleteplay', deletePlaylist)
+router.delete('/deleteplay/:id', deletePlaylist)
 
 export { router };
