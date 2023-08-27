@@ -21,7 +21,6 @@ playlists.belongsTo(users, {
 playlists.hasMany(songs, {
     foreignKey: 'id_playlist'
 });
-
 songs.belongsTo(playlists, {
     foreignKey: 'id_playlist'
 });
