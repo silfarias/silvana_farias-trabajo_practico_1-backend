@@ -15,7 +15,7 @@ export const songs = sequelize.define('songs', {
     artista: {
         type: DataTypes.STRING,
         allowNull: false
-    }
+    },
 },{
     timestamps: true,
     tableName: 'songs'
