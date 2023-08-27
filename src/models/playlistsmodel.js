@@ -22,7 +22,7 @@ export const playlists = sequelize.define('playlists', {
     tableName: 'playlists'
 });
 
-playlists.sync({ force: false });
+playlists.sync({ force: true });
 
 
 

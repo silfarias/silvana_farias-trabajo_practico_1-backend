@@ -21,4 +21,4 @@ export const songs = sequelize.define('songs', {
     tableName: 'songs'
 })
 
-songs.sync({ force: false })
+songs.sync({ force: true })

@@ -31,15 +31,16 @@ export const users = sequelize.define('users', {
 });
 
 
-users.sync({ force: false });
 
 
-export const createUserShema = checkSchema({
+/*export const createUserShema = checkSchema({
     email: { errorMessage: 'Email Inválido', isEmail: true },
     password: {
-      isLength: {
+        isLength: {
         options: { min: 8, max: 15 },
         errorMessage: 'La contraseña debe tener entre 8 y 15 carácteres'
-      }
     }
-});
+}
+});*/
+
+users.sync({ force: true });
