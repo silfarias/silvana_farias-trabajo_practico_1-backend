@@ -3,7 +3,7 @@ import { createPlaylist, deletePlaylist,
 getAllPlaylists, getPlaylistId, updatePlaylist } from "../controllers/controller-playlist.js";
 import { validacion, validateSchema } from "../../middleware/validationShema.js";
 import { createUser } from "../controllers/controller-user.js";
-import { createsong } from "../controllers/controller-song.js";
+import { createsong, getAllSongs } from "../controllers/controller-song.js";
 
 const router = Router();
 
@@ -13,6 +13,8 @@ validacion, validateSchema, createUser )
 
 //RUTA PARA CREAR/GUARDAR SONG EN PLAYLIST
 router.post('/newsong', createsong )
+//RUTA PARA ACCEDER A TODAS LAS CANCIONES
+router.get('/getsongs', getAllSongs)
 
 
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

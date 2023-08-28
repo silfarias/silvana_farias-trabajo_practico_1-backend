@@ -5,9 +5,8 @@ import helmet from 'helmet'
 import morgan from 'morgan'
 import { connectDb } from './database/db.js'
 import { router } from './src/routes/routes.js'
-import './database/associations.js'
+import { associations } from './database/associations.js'
 import './middleware/hash.js'
-
 
 //CONFIGURACION DE LA APP Y EL PUERTO DEL SERVIDOR
 const app = express();
@@ -23,6 +22,7 @@ app.use(cors());
 
 //CONEXION A BASE DE DATOS
 connectDb();
+associations();
 
 
 //RUTAS

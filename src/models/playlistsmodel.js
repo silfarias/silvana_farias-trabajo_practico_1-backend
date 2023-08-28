@@ -20,10 +20,6 @@ export const playlists = sequelize.define('playlists', {
     id_user: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-            model: 'users',
-            key: 'id'
-        }
     }
 },{
     timestamps: true,

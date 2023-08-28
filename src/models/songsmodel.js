@@ -17,12 +17,8 @@ export const songs = sequelize.define('songs', {
         allowNull: false
     },
     id_playlist: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'playlists',
-            key: 'id'
-        }
+        type: DataTypes.INTEGER, 
+        allowNull: false, 
     }
 },{
     timestamps: true,
