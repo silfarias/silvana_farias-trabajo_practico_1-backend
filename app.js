@@ -3,7 +3,6 @@ import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet' 
 import morgan from 'morgan'
-import dotenv from 'dotenv'
 import { connectDb } from './database/db.js'
 import { router } from './src/routes/routes.js'
 import './database/associations.js'
@@ -16,7 +15,6 @@ const PORT = process.env.PORT || 3000
 
 
 //CONFIGURACION DE middleware
-dotenv.config();
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(helmet());

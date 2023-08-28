@@ -1,10 +1,17 @@
-import { Sequelize } from 'sequelize';
+import { Sequelize, DataTypes } from 'sequelize';
+import dotenv from 'dotenv'
+dotenv.config()
 
 //CREAMOS INSTANIA DE CONEXION A BASE DE DATOS Y EXPORTAMOS
-export const sequelize = new Sequelize('tem3playlistdb', 'root', '', {
-  host: 'localhost',
-  dialect: 'mysql' //No utilicé las variables de entorno del archivo .env porque el servidor no las leía
-});
+export const sequelize = new Sequelize(
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
+    {
+        host: process.env.DB_HOST, 
+        dialect: process.env.DB_DIALECT
+    }
+);
 
 export const connectDb = async () => {
     try {
