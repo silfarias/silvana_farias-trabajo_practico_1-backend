@@ -6,7 +6,7 @@ import { songs } from "../src/models/songsmodel.js";
 //RELACIONES CON LAS ENTIDADES
 
 //RELACION DE UNO A MUCHOS ENTRE USUARIO Y PLAYLIST
-//Se añade una clave userId a la tabla playlists, una playlist pertenece a un solo usuario
+//Se añade una clave id_user a la tabla playlists, una playlist pertenece a un solo usuario
 users.hasMany(playlists, { 
     foreignKey: 'id_user'
 });

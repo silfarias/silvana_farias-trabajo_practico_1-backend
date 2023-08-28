@@ -22,12 +22,12 @@ export const getPlaylistId = async (req, res) => {
 export const getAllPlaylists = async (req, res) => {
     try {
       const allPlaylists = await playlists.findAll();
-      return res.status(200).json(allPlaylists);
+       return res.status(200).json(allPlaylists);
     } catch (error) {
       console.error('Error al obtener las playlists:', error);
-      return res.status(500).json({ message: 'Error al obtener las playlists' });
+       return res.status(500).json({ message: 'Error al obtener las playlists' });
     }
-  };
+};
 
 
 //CREAR PLAYLIST
