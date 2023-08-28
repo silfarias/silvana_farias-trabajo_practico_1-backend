@@ -5,10 +5,10 @@ import { songs } from "../models/songsmodel.js";
 //CRUD
 //CREAR/GUARDAR CANCIÓN 
 export const createsong = async (req, res) => {
+  const { id_playlist } = req.params;
   const {
     nombre,
-    artista,
-    id_playlist
+    artista
   } = req.body;
 
   try {
@@ -18,7 +18,7 @@ export const createsong = async (req, res) => {
       id_playlist
     })
     await newSong.save()
-    return res.status(201).json({ message: 'Cancion guardada en la Playlist'});
+    return res.status(201).json({ message: 'Cancion guardada en la Playlist', newSong });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

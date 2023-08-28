@@ -12,7 +12,7 @@ router.post('/newuser',
 validacion, validateSchema, createUser )
 
 //RUTA PARA CREAR/GUARDAR SONG EN PLAYLIST
-router.post('/newsong', createsong )
+router.post('/newsong/:id_playlist', createsong )
 //RUTA PARA ACCEDER A TODAS LAS CANCIONES
 router.get('/getsongs', getAllSongs)
 
@@ -28,7 +28,7 @@ router.get('/getplaylists', getAllPlaylists )
 router.get('/getplay/:id', getPlaylistId )
 
 //CREAR PLAYLIST
-router.post('/createplay', createPlaylist)
+router.post('/createplay/:id_user', createPlaylist)
 
 //EDITAR PLAYLIST
 router.put('/updateplay/:id', updatePlaylist)

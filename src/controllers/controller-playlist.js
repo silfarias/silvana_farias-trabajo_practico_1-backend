@@ -32,11 +32,22 @@ export const getAllPlaylists = async (req, res) => {
 
 //CREAR PLAYLIST
 export const createPlaylist = async (req, res) => {
+    const { id_user } = req.params;
+    const {
+        name, 
+        estado,
+    } = req.body;
+
     try {
-        const newPlaylist = await playlists.create(req.body);
-        res.status(201).json({ message: 'Playlist creada'});
+        const newPlaylist = new playlists({
+            name,
+            estado,
+            id_user
+        })
+        await newPlaylist.save();
+        return res.status(201).json({ message: 'Playlist creada', newPlaylist});
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        return res.status(500).json({ error: error.message });
     }
 };
 
