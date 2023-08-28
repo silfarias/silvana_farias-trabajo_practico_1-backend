@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 27-08-2023 a las 19:13:11
+-- Tiempo de generación: 28-08-2023 a las 02:22:43
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `playlists` (
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `playlists`
@@ -48,7 +48,8 @@ INSERT INTO `playlists` (`id`, `name`, `estado`, `id_user`, `createdAt`, `update
 (2, 'Pacific', 1, 1, '2023-08-27 17:12:43', '2023-08-27 17:12:43'),
 (3, 'Across', 1, 2, '2023-08-27 15:15:42', '2023-08-27 17:09:27'),
 (4, 'Geniusss', 1, 2, '2023-08-27 15:15:42', '2023-08-27 19:10:20'),
-(5, 'Moon', 1, 1, '2023-08-27 17:14:53', '2023-08-27 18:55:48');
+(5, 'Moon', 1, 1, '2023-08-27 17:14:53', '2023-08-27 18:55:48'),
+(7, 'Solo', 0, 3, '2023-08-28 02:13:16', '2023-08-28 02:15:38');
 
 -- --------------------------------------------------------
 
