@@ -4,6 +4,7 @@ getAllPlaylists, getPlaylistId, updatePlaylist } from "../controllers/controller
 import { validacion, validateSchema } from "../../middleware/validationShema.js";
 import { createUser } from "../controllers/controller-user.js";
 import { createsong, getAllSongs } from "../controllers/controller-song.js";
+import '../../middleware/hash.js'
 
 const router = Router();
 

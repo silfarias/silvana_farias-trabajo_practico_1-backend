@@ -6,7 +6,6 @@ import morgan from 'morgan'
 import { connectDb } from './database/db.js'
 import { router } from './src/routes/routes.js'
 import { associations } from './database/associations.js'
-import './middleware/hash.js'
 
 //CONFIGURACION DE LA APP Y EL PUERTO DEL SERVIDOR
 const app = express();
